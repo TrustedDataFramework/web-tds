@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<script src="/static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="/static/font-awesome-4.7.0/css/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/psd-register.css"/>
+	</head>
+	<body>
+
+		<div id="weld-header"></div>
+		<!-- 注册 -->
+		<section>
+			<div class="login-beijing">
+				<div class="login-box">
+					<div id="" class="login-item">
+						<img src="/static/img/login.png" style="width: 50%;">
+							<div class="item-warp">
+								<a href="javascript:window.history.go(-1); "><img src="/static/img/login-left.png" style="width:31px;height:31px;"></a>
+
+								<div class="" style="display: flex;">
+									<div class="ui-login" id="jump-password"><a href="../user/psd">①请输入并确认您的密码</a></div>
+									<div class="ui-up">②请填写相关绑定信息</div>
+								</div>
+
+								<input type="text" id="address" name="address" th:value="${address}">
+								<input type="text" id="keystore" name="keystore" th:value="${keystore}"  style="display: none">
+								<input type="text" id="username" name="username" placeholder="请输入用户名" required="">
+								<select id="role" name="role" required="">
+									<option value="">请选择角色权限</option>
+									<option value="0">超级管理员</option>
+									<option value="1">管理员</option>
+									<option value="2">普通用户</option>
+								</select>
+								<div class="" style="display: flex; justify-content: space-between;">
+									<select id="country" name="country" style="width: 48%;" required="">
+										<option value="">请选择所属机构</option>
+										<option value="1">abc</option>
+										<option value="2">1234</option>
+									</select>
+									<select id="countryType" name="countryType" style="width: 48%;" required="">
+										<option value="">请选择机构类型</option>
+										<option value="1">abc</option>
+										<option value="2">1234</option>
+									</select>
+								</div>
+
+								<button type="submit" id="regist" class="b-search" onclick="yanzheng()" >注册</button>
+							</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			备案版权号备案版权号备案版权号备案版权号备案版权号@备案版权号备案版权号
+		</footer>
+		
+<!--		<script type="text/javascript">-->
+<!--			$("#weld-header").load("header.html");-->
+<!--			window.onload = function() {-->
+<!--				-->
+<!--					document.getElementById("regist").onclick = function() {-->
+<!--						var url = "/weldchain/login.html";-->
+<!--						window.open(url);-->
+<!--						return true;-->
+<!--					}-->
+<!--				-->
+<!--			}-->
+<!--		</script>-->
+ 
+	</body>
+	<script type="text/javascript">
+		function yanzheng() {
+			let username = $("#username").val();
+			let role = $("#role").val();
+			let country = $("#country").val();
+			let countryType = $("#countryType").val();
+			let address = $("#address").val();
+			let password = [[${password}]];
+			let keystore = $("#keystore").val();
+			if (username.trim() == "" || role.trim() == "" || country.trim() == "" || countryType.trim() == "") {
+				alert("请填写完整信息");
+			} else {
+				$.ajax({
+					url: '/web/user/register_2',
+					type: 'post',
+					data: JSON.stringify({"username":username,"password":password,"role": role, "country": country,"address":address,"keystore":keystore}),
+					contentType: "application/json;charset=utf-8",
+					dataType: "json",
+					success: function (data) {
+						if(data.code = 500){
+							alert(data.msg);
+						}else{
+							alert(data.msg);
+						}
+						console.log(data.msg);
+						location.href="[[@{../login}]]";
+					},
+					error: function (err) {
+
+					}
+				})
+			}
+		}
+	</script>
+</html>

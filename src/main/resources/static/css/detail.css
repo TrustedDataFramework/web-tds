@@ -1,0 +1,181 @@
+*{margin: 0;padding: 0;}
+@charset "utf-8";
+body,html{height: 100%;}
+body{font:14px "微软雅黑","宋体","Arial Narrow",HELVETICA;-webkit-text-size-adjust:100%;
+font-family:Source Han Sans CN;font-weight:bold;background-color: #E1E1E1;}
+li{list-style:none}
+a{text-decoration:none;}
+
+.wid-1200 {
+	width: 75%;
+	margin: 0 auto;
+	margin-top: 15px;
+	overflow: auto;
+}
+
+.ant-bread .arrows {
+	padding: 0 0.5rem;
+	font-size:15px;
+	color:rgba(0,0,0,1);
+}
+.ant-bread san{
+	
+}
+
+.flexs{
+	background: #fff;
+	margin-bottom: 80px;
+	margin-top: 15px;
+	height: 1300px;
+}
+.outer { height: 1200px; position: relative; }
+.A { 
+	height: 140px; 
+	background: #BBE8F2;
+	background-image: url(../img/affair-beijing.png);
+	display: flex;
+	align-items: center;
+}
+.B { 
+	background: #FFFFFF; 
+	width: 100%;
+	position: absolute; 
+	top: 140px ; 
+	left: 0 ; 
+	bottom: 35;
+	height: 100%;
+}
+.leftp{
+	width:180px;
+	height:100%;
+	background-color:#B9B9B9;
+	float:left;
+}
+.rightp{
+	margin-left:180px;
+	height:100%;
+	overflow: hidden;
+}
+.flex-column{
+	display: flex;
+	flex-direction: column;
+}
+.align-center{
+	align-items: center;
+}
+.flex-column>span{
+	margin: 2px 0;
+}
+.related{
+	font-size: 18px;margin: 20px;
+}
+.leftp ul li {
+	width: 100%;
+	height:40px;
+	font-size:14px;
+	font-family:Source Han Sans CN;
+	font-weight:bold;
+	color:rgba(51,51,51,1);
+	line-height:40px;
+	cursor: pointer;
+	position: relative;
+	display: inline-block;
+}
+.leftp ul li:hover{
+	background-color: #46A2D2;
+}
+
+.rightp .content{
+	width: 90%;
+	margin: 0px auto;
+	background-color: #FFFFFF;
+	height:auto;
+}
+
+/* 弹窗 */
+.tooltip {
+	position: relative;
+	display: inline-block;
+	margin-left: 20px;
+	width: 100%;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	background-color: black;
+	color: #fff;
+	border-radius: 6px;
+	padding: 0 20px;
+	width:703px;
+	height:610px;
+	background:rgba(237,237,237,1);
+	border:1px solid rgba(185, 185, 185, 1);
+	border-radius:5px;
+	display: flex;
+	flex-direction: column;
+	
+	/* 定位 */
+	position: absolute;
+	z-index: 1;
+	top: -10px;
+	left: 180px;
+}
+
+.tooltip .tooltiptext>span:nth-child(1){
+	margin-top: -20px;
+}
+.tooltip .tooltiptext>span{
+	font-size:14px;
+	font-family:Source Han Sans CN;
+	font-weight:bold;
+	color:rgba(51,51,51,1);
+	margin: 5px 0;
+	height:14px;
+	line-height: 14px;
+}
+.tooltip .tooltiptext>img{
+	width: 90%;
+	height:404px;
+	margin: 20px auto;
+	background-color: #03B8F7;
+}
+
+
+.tooltip:hover .tooltiptext{
+	visibility: visible;
+}
+
+.shixin{
+	width:0;
+	height:0;
+	border:12px solid transparent;
+	border-right-color:#B9B9B9;
+	position: relative;
+	top: 18px;
+	left:-44px;
+}
+
+.detail-page{
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	height: 20px;
+	line-height: 20px;
+}
+
+.detail-page-i{
+	background:rgba(255,255,255,1);
+	box-shadow:0px 4px 4px 0px rgba(4,0,0,0.2);
+	border-radius:5px;
+	padding: 0 5px;
+	margin: 0 15px;
+	font-family:Source Han Sans CN;
+	font-weight:bold;
+	color:rgba(3,51,51,1);
+}
+.detail-page>p>span{
+	font-size:16px;
+	font-family:Source Han Sans CN;
+	font-weight:bold;
+	color:rgba(3,51,51,1);
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>密码</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<script src="/static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="/static/font-awesome-4.7.0/css/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/css/psd-register.css"/>
+	</head>
+	<body>
+
+		<div id="weld-header"></div>
+
+		<section>
+			<div class="login-beijing">
+				<div class="login-box">
+					<div id=""class="login-item">
+						<img src="/static/img/login.png" style="width: 50%;">
+						<form class="form-signin"  th:action="@{/web/user/register}" method="post">
+							<div class="item-warp">
+								<a href="javascript:window.history.go(-1); "><img src="/static/img/login-left.png" style="width:31px;height:31px;"></a>
+								<div class=""style="display: flex;">
+									<div class="password-ui-login">①请输入并确认您的密码</div>
+									<div class="password-ui-up">②请填写相关绑定信息</div>
+								</div>
+								<input type="text" id="password_1" name="password_1" placeholder="请输入密码" required="">
+								<input type="text" id="password_2" name="password_2" placeholder="请确认您的密码" required="">
+								<button type="submit" style="letter-spacing: 5px;" id="next">下一步</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			备案版权号备案版权号备案版权号备案版权号备案版权号@备案版权号备案版权号
+		</footer>
+
+<!--		<script type="text/javascript">-->
+<!--			$("#weld-header").load("/static/header.html");-->
+<!--			window.onload = function() {-->
+<!--				document.getElementById("next").onclick = function() {-->
+<!--					var url = "/web/register";-->
+<!--					window.open(url);-->
+<!--					return true;-->
+<!--				}-->
+<!--			}-->
+<!--			-->
+<!--		</script>-->
+	</body>
+
+	<script>
+	</script>
+</html>

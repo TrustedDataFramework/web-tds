@@ -1,0 +1,187 @@
+*{padding: 0;margin: 0;}
+html,body {
+	height: 100%;
+}
+/* body,ul {
+	margin: 0;
+}
+
+header,footer {
+	position: absolute;
+	line-height: 100px;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	color: aquamarine;
+	text-align: center;
+	background: #333;
+}
+footer {
+	position: absolute;
+	line-height: 35px;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	color: aquamarine;
+	text-align: center;
+	background: #333;
+}
+
+header {
+	top: 0;
+}
+
+footer {
+	bottom: 0;
+}
+section {
+
+	position: absolute;
+	top: 100px;
+	right: 0;
+	bottom: 48px;
+	left: 0;
+	overflow: auto;
+	width: 100%;
+	height: 960px;
+	background-image: url(../images/deal-beijing.png);
+} */
+
+.list-beijing {
+    width: 100%;
+    background-image: url(../img/deal-beijing.png);
+	background-size: cover;
+    display: flex;
+    align-items: center;
+    height: 850px;
+	overflow: auto;
+	position: relative;
+}
+.section-ui{
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	/* width: 1700px; */
+}
+.li-div-title{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.li-div-title>img{
+	margin-top: 30px;
+}
+.li-div-item{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
+}
+ui{
+	display: flex;
+	margin: 0 auto;
+}
+section-ui>img{
+	margin: 0 10px;
+}
+
+li {
+	margin: 10px 0px;
+	list-style: none;
+	width:200px;
+	height:400px;
+	background-image: url(../img/item.jpg);
+	border-radius:10px;
+}
+li:first-child{
+	margin-left: 30px;
+}
+li:last-child{
+	margin-right: 30px;
+}
+.wrap{
+	width: 100%;
+	height: 980px;
+	background-image: url(../images/deal-beijing.png);
+}
+.item-left{
+	width: 50%;
+	font-size:16px;
+	font-family:Source Han Sans CN;
+	font-weight:bold;
+	color:rgba(255,255,255,1);
+	height:40px;
+	line-height: 40px;
+	text-align: center;
+	background:rgba(1,87,191,1);
+	border-radius:10px 0px 10px 0px;
+}
+.item-title{
+	margin-top: 20px;
+	font-size:18px;
+	font-family:Source Han Sans CN;
+	font-weight:bold;
+	color:rgba(51,51,51,1);
+}
+.item-val{
+	min-width: 150px;
+	overflow: hidden;
+	display: block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-top: 10px;
+}
+.but-detail{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width:100px;
+	height:40px;
+	background:rgba(1,87,191,1);
+	border-radius:5px;
+	margin: 25px auto;
+	cursor: pointer;
+}
+
+.position-bottom{
+	position: relative;
+	width: 200px;
+}
+
+.but2-detail{
+	position: absolute;
+	top: 1;
+	left: 0;
+	right: 0;
+	bottom: -232px;
+	width:100px;
+	height:40px;
+	background:rgba(1,87,191,1);
+	border-radius:5px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
+}
+.paompt{
+	width: 910px;
+	height:21px;
+	font-size:18px;
+	font-family:Source Han Sans CN;
+	font-weight:bold;
+	color:rgba(255,255,255,1);
+	margin: 40px auto;
+	position: absolute;
+	left: 28%;
+	top: 80%;
+}
+.paompt a{
+	color: #46A5D4;
+	cursor: pointer;
+}
+
+.right-img{
+	height: 32px;
+	width: 16;
+	background-image:url(../img/right.png) ;
+}

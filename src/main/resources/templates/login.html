@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<script src="/static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="/static/font-awesome-4.7.0/css/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/css/login.css"/>
+	</head>
+	<body>
+
+		<div id="weld-header"></div>
+		<section>
+			<div class="login-beijing">
+				<div class="login-box">
+					<div id=""class="login-item">
+						<img src="/static/img/login.png" style="width: 50%;">
+						
+						<div class="item-warp">
+							<div class="watp-title">
+								欢迎登录焊接链！
+							</div>
+							<p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)} "></p>
+<!--							    <select id="username" name="username">-->
+<!--							      <option  >请选择keystoer</option>-->
+<!--							      <option id="canada">abc</option>-->
+<!--							      <option id="usa">1234</option>-->
+<!--							    </select>-->
+							<form class="form-signin"  th:action="@{/web/user/login}" method="post">
+								<input type="text" id="keystore" name="keystore" placeholder="请选择keystore" required="" readonly  unselectable="on" >
+								<input type="text" id="keystore1" name="keystore1" style="display: none">
+								<input type="file" value = "选择文件" id="files" onchange="fileImport()" required="" >
+							    <input type="password" id="password" name="password" placeholder="请输入登录密码" required="" >
+								<a href="/web/user/psd">注册账号</a>
+								<button id="login" type = "submit">登录</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<footer>
+			备案版权号备案版权号备案版权号备案版权号备案版权号@备案版权号备案版权号
+		</footer>
+
+
+<!--		<script type="text/javascript">-->
+<!--			$("#weld-header").load("/static/header.html");-->
+<!--			window.onload = function() {-->
+<!--				document.getElementById("login").onclick = function() {-->
+<!--					var url = "/affair.html";-->
+<!--					window.open(url);-->
+<!--					return true;-->
+<!--				}-->
+<!--			}-->
+<!--		</script>-->
+	</body>
+	<script>
+
+		//点击导入按钮,使files触发点击事件,然后完成读取文件的操作
+		$("#fileImport").click(function () {
+			$("#files").click();
+		})
+		function fileImport() {
+			//获取读取我文件的File对象
+			var selectedFile = document.getElementById('files').files[0];
+			var name = selectedFile.name;//读取选中文件的文件名
+			console.log("文件名:"+name);
+
+			var reader = new FileReader();//这是核心,读取操作就是由它完成.
+			reader.readAsText(selectedFile);//读取文件的内容,也可以读取文件的URL
+			reader.onload = function () {
+				//当读取完成后回调这个函数,然后此时文件的内容存储到了result中,直接操作即可
+				console.log(this.result);
+				$("#keystore1").val(this.result);
+				$.ajax({
+					url: '/web/user/getAddress',
+					type: 'get',
+					data: {keystore:this.result},
+					dataType: "json",
+					success: function (result) {
+						let address = result.data;
+						$("#keystore").val(address);
+					},
+					error: function (err) {
+						console.log("data.code");
+					}
+				})
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<header>
+	<div class="top">
+		<div class="top_logo">
+			<a href="/web/user/index"><img src="/static/img/logo.png" /></a>
+			<div class="theme">焊接链</div>
+		</div>
+		<div class="top_right">
+			<dl>
+				<dd><a th:text="'您好,'+${session.loginUser}"></a></dd>
+				<dd><a href="/web/user/layout"><i class="fa fa-sign-out" style="color: #333333;font-size: 28px;"></i></a></dd>
+				<dd><a><img src="/static/img/Chinese.png" ></a></dd>
+			</dl>
+		</div>
+	</div>
+</header>
+</html>
