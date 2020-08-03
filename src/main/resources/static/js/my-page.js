@@ -1,9 +1,14 @@
+var first_flag=false;
+
+
 function myPageInit({
-    pages = 10,
-    currentPage = 1,
-    element = '.my-page',
-    callback
-}) {
+        pages = 10,
+        currentPage = 1,
+        element = '.my-page',
+
+        callback,
+
+    }) {
 
     intercept();
 
@@ -36,30 +41,39 @@ function myPageInit({
 
     // 点击事件注册
     myPageEl.onclick = function (e) {
-        // console.log(e)
+        console.log(e)
+        console.log('点击事件注册')
         let classNameArr = e.target.className.split(" ");
         if (classNameArr.indexOf("my-page-cell") !== -1) {
-            clickPageFun(Number(e.target.innerText));
+            first_flag= true;
+            clickPageFun(Number(e.target.innerText),first_flag);
         };
+
     }
 
     // 上下页按钮触发
     function switchPage(e) {
         // 获取当前页
-        let page = document.querySelector(`${element} .my-page-checked`).innerText - 0;
 
+        let page = document.querySelector(`${element} .my-page-checked`).innerText - 0;
+        first_flag= true;
         let classNameArr = e.target.className.split(" ");
         if (classNameArr.indexOf("my-page-prev") !== -1) {
-            clickPageFun(page - 1); // 上一页
+            clickPageFun(page - 1,first_flag); // 上一页
+
+
         } else if (classNameArr.indexOf("my-page-next") !== -1) {
-            clickPageFun(page + 1); // 下一页
+            clickPageFun(page + 1,first_flag); // 下一页
+
         };
+
     };
 
 
     // 分页切换处理
-    function clickPageFun(page) {
+    function clickPageFun(page,first_flag) {
         page = Number(page);
+        //console.log(page+'什么鬼')
         // 满足条件改变结构
         if (pages > 7) {
             let newEl = '';
@@ -93,7 +107,10 @@ function myPageInit({
             };
             document.querySelector(`${element} .my-page-group`).innerHTML = newEl;
         };
-
+        if(first_flag){
+            //console.log('223')
+            callback && callback(page);
+        }
         // 标注选中项
         let pageCellELs = document.querySelectorAll(`${element} .my-page-cell`);
         pageCellELs.forEach(el => {
@@ -103,11 +120,9 @@ function myPageInit({
                 el.classList.remove('my-page-checked');
             };
         });
-
+        //
+        //console.log('标注选中项')
         forbidden(page);
-
-        // 回调响应
-        callback && callback(page);
     };
 
     // 上下页按钮启禁
@@ -148,4 +163,7 @@ function myPageInit({
             throw "当前页不存在";
         }
     };
+    function getPage(page){
+        return page
+    }
 }

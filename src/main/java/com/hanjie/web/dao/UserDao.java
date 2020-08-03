@@ -32,6 +32,9 @@ public interface UserDao  {
     @Select("select count(*) from account where role != 0 and status = 0")
     int auditCount();
 
+    @Select("select count(*) from account where role != 0 and status = 2")
+    int userCount();
+
     //查询机构名称
     @Select("select * from organ where id =#{organ}")
     Organ selectOrganName(String organ);
@@ -57,4 +60,7 @@ public interface UserDao  {
 
     @Update("update hash set status = 2 where address = #{address}")
     boolean userTxHashSuccaerrBroad(String address);
+
+    @Update("update account set username = #{username} , role = #{role} , organ =#{organ} where address =#{address}")
+    boolean updateUser(String username ,int role ,int organ ,String address);
 }

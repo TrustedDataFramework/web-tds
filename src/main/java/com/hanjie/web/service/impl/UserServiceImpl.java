@@ -47,6 +47,11 @@ public class UserServiceImpl implements UserService {
     };
 
     @Override
+    public int userCount(){
+        return userDao.userCount();
+    };
+
+    @Override
     public Organ selectOrganName(String organ) {
         return userDao.selectOrganName(organ);
     }
@@ -64,6 +69,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean addHash(byte[] address, String hash, int status, String timestamp) {
         return userDao.addHash(address,hash,status,timestamp);
+    }
+
+    public boolean updateUser(String username ,int role ,int organ ,String address){
+        return userDao.updateUser(username,role,organ,address);
     }
 
 }

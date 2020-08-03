@@ -139,7 +139,7 @@ public class loginController {
                 }
                 session.setAttribute("address",address);
                 session.setAttribute("privateKey",privateKey);
-                model.addAttribute("list",list_1);
+                model.addAttribute("list1",list_1);
                 model.addAttribute("list2",list_2);
                 model.addAttribute("totalPage",totalPage);
                 if(totalRecord == 0){
@@ -159,10 +159,11 @@ public class loginController {
     }
 
     @GetMapping("/user/getList")
-    @ResponseBody
-    public APIResponse getList(@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum,
+    public String getList(@RequestParam(defaultValue = "1",value = "page") Integer pageNum,
+                          @RequestParam(defaultValue = "1",value = "type") Integer type,
                           Map<String,Object> map, HttpSession session,Model model) throws UnsupportedEncodingException {
         log.info("===========第"+pageNum+"页==========");
+        System.out.println(type);
         int pageSize = 10;
         int totalRecord = service.auditCount();
         int totalPage;
@@ -178,23 +179,59 @@ public class loginController {
         }
         //待审核列表
         List<Account> list_1 = service.auditUser(pageSize, offset);
-        for(int i = 0;i<list_1.size();i++){
-            String s_utf8 = new String(list_1.get(i).getAddress(),"UTF-8");
+        for (int i = 0; i < list_1.size(); i++) {
+            String s_utf8 = new String(list_1.get(i).getAddress(), "UTF-8");
             list_1.get(i).setAddress_utf8(s_utf8);
             Organ organ = service.selectOrganName(String.valueOf(list_1.get(i).getOrgan()));
             list_1.get(i).setOrganName(organ.getOrganName());
         }
-        model.addAttribute("list1",list_1);
-        model.addAttribute("totalPage",totalPage);
-        if(totalRecord == 0){
+        model.addAttribute("list1", list_1);
+        model.addAttribute("totalPage", totalPage);
+        if (totalRecord == 0) {
             model.addAttribute("pageNum", 1);
-        }else {
+        } else {
             model.addAttribute("pageNum", pm.getCurrentPage());
         }
-        model.addAttribute("amount",totalRecord);
-        APIResponse apiResponse = new APIResponse();
-        apiResponse.setData(list_1);
-        return apiResponse;
+        model.addAttribute("amount", totalRecord);
+        return "affair";
+    }
+
+    @GetMapping("/user/getUserList")
+    public String getUserList(@RequestParam(defaultValue = "1",value = "page") Integer pageNum,
+                          @RequestParam(defaultValue = "1",value = "type") Integer type,
+                          Map<String,Object> map, HttpSession session,Model model) throws UnsupportedEncodingException {
+        log.info("===========第"+pageNum+"页==========");
+        System.out.println(type);
+        int pageSize = 10;
+        int totalRecord = service.userCount();
+        int totalPage;
+        int offset;
+        PageModel pm = PageModel.newPageModel(pageSize, pageNum, totalRecord);
+        if(totalRecord == 0){
+            totalPage = 1;
+            offset = 0;
+        }else {
+            totalPage = pm.getTotalPage();
+            pm.setCurrentPage(pageNum);
+            offset = pm.getOffset();
+        }
+        //用户列表
+        List<Account> list_2 = service.auditUser_2(pageSize, offset);
+        for(int i = 0;i<list_2.size();i++){
+            String s_utf8 = new String(list_2.get(i).getAddress(),"UTF-8");
+            list_2.get(i).setAddress_utf8(s_utf8);
+            Organ organ = service.selectOrganName(String.valueOf(list_2.get(i).getOrgan()));
+            list_2.get(i).setOrganName(organ.getOrganName());
+        }
+        model.addAttribute("list2", list_2);
+        model.addAttribute("totalPage", totalPage);
+        if (totalRecord == 0) {
+            model.addAttribute("pageNum", 1);
+        } else {
+            model.addAttribute("pageNum", pm.getCurrentPage());
+        }
+        model.addAttribute("amount", totalRecord);
+        return "affairpend";
     }
 
     @GetMapping("/user/layout")
@@ -309,7 +346,7 @@ public class loginController {
             Organ organ = service.selectOrganName(String.valueOf(list_2.get(i).getOrgan()));
             list_2.get(i).setOrganName(organ.getOrganName());
         }
-        model.addAttribute("list",list_1);
+        model.addAttribute("list1",list_1);
         model.addAttribute("list2",list_2);
         model.addAttribute("totalPage",totalPage);
         if(totalRecord == 0){
@@ -409,5 +446,19 @@ public class loginController {
                         HttpServletRequest request){
         log.info("=========查询详情222=========");
         return "detail";
+    }
+
+    @PostMapping("/user/updateUser")
+    public String updateUser(@RequestParam(value = "address") String address,
+                             @RequestParam(value = "username") String username,
+                             @RequestParam(value = "organName") int organ,
+                             @RequestParam(value = "role") int role){
+        boolean result = service.updateUser(username,role,organ,address);
+//        if(result){
+//            System.out.println("1");
+//        }else {
+//            System.out.println("2");
+//        }
+        return "affairpend";
     }
 }

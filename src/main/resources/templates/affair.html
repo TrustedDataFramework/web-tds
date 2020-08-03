@@ -20,16 +20,11 @@
 			   
 			  <div class="affair_top box-flex">
 			     
-			  	<a class="affair_nav box-flex acenter vcenter cur" href="/web/user/audit">待处理事务<!--<span class="circle">6</span>--></a>
-				<a class="affair_nav box-flex acenter vcenter">用户列表</a>
+			  	<a class="affair_nav box-flex acenter vcenter cur" href="/web/user/getList?page=1&type=1">待处理事务<!--<span class="circle">6</span>--></a>
+				<a class="affair_nav box-flex acenter vcenter" href="/web/user/getUserList?page=1&type=2">用户列表</a>
 				
 			  </div>
-			  <div class="searchIn">
-				   <div class="din box-flex vcenter">
-				      <input type="text"/>
-				   </div>
-				   <button class=" fa fa-search  n_searchbtn"></button>
-				</div>
+
 				<div class="affair" id="tab_ptrans" >
 				  <table style='white-space: nowrap' >
 					  <tr>
@@ -39,62 +34,28 @@
 						  <th style="text-align: center;">角色权限</th>
 						  <th style="text-align: center;">操作</th>
 					  </tr>
-					  <tr th:each="list,listStat: ${list}">
-						  <td ><a th:href="${list.address_utf8}" th:text="${list.address_utf8}"></a></td>
-						  <input type="hidden" th:value="${list.address_utf8}" id="address" name = "address" />
-						  <td th:text="${list.username}"></td>
-						  <td th:text="${list.organName}"></td>
-						  <td th:if="${list.role} == 1" th:text="管理员"></td>
-						  <td th:if="${list.role} == 2" th:text="普通用户"></td>
+					  <tr th:each="list1,listStat: ${list1}">
+						  <td ><a th:href="${list1.address_utf8}" th:text="${list1.address_utf8}"></a></td>
+						  <input type="hidden" th:value="${list1.address_utf8}" id="address" name = "address" />
+						  <td th:text="${list1.username}"></td>
+						  <td th:text="${list1.organName}"></td>
+						  <td th:if="${list1.role} == 1" th:text="管理员"></td>
+						  <td th:if="${list1.role} == 2" th:text="普通用户"></td>
 						  <td>
-							  <a href="#modal-by" style="color: #FFFFFF;margin-right: 10px;"  th:onclick="auditSuccess([[${list.address_utf8}]])">
+							  <a href="#modal-by" style="color: #FFFFFF;margin-right: 10px;"  th:onclick="auditSuccess([[${list1.address_utf8}]])">
 								  <i class="fa fa-check-circle fa-2x"style="color:#0FA10B"></i>
 							  </a>
-							  <a href="#modal-one" th:onclick="auditFail([[${list.address_utf8}]])">
+							  <a href="#modal-one" th:onclick="auditFail([[${list1.address_utf8}]])">
 								  <i class="fa fa-times-circle fa-2x"style="color:#BF3232"></i>
 							  </a>
 						  </td>
 					  </tr>
 				  </table>
-				 
+					<div class="newPage">
+						<div class="my-page user1-page"></div>
+					</div>
 				</div>
-				<!--用户列表-->
-				<div class="affair" id="tab_users" style="display:none;">
-				 <table style='white-space: nowrap' >
-					  <tr>
-						  <th style="text-align: center;">地址</th>
-						  <th style="text-align: center;">用户名</th>
-						  <th style="text-align: center;">所属机构</th>
-						  <th style="text-align: center;" >角色权限</th>
-						  <th style="text-align: center;">序号</th>
-						  <th style="text-align: center;">操作</th>
-					  </tr>
-					  <tr th:each="list2,list2Stat: ${list2}">
-						  <td id = "address_1"><a th:href="${list2.address_utf8}" th:text="${list2.address_utf8}"></a></td>
-						  <td th:text="${list2.username}"  id = "username_1"></td>
-						  <td th:if="${list2.organ} == 1" th:text="测试1" id = "organName_1"></td>
-						  <td th:if="${list2.organ} == 2" th:text="测试2" id = "organName_2"></td>
-						  <td th:if="${list2.role} == 1" th:text="管理员" id = "role_1"></td>
-						  <td th:if="${list2.role} == 2" th:text="普通用户" id = "role_2"></td>
-						  <td th:text="${pageNum}"></td>
-						  <td>
-							  <a href="#modal-edit" style="color: #5FB3F1;">
-								<i class="fa fa-edit fa-2x"style="color:#5FB3F1"  th:onclick="change([[${list2}]])"></i>
-							  </a>
-							 
-						  </td>
-					  </tr>
 
-					  
-				  </table>
-				</div>
-				
-				
-				
-				<div class="newPage">
-				   <div class="my-page"></div>
-				</div>
-				
 				<!-- 未通过 -->
 				<div class="modal" id="modal-one" aria-hidden="true">
 				    <div class="modal-dialog">
@@ -119,38 +80,7 @@
 				        </div>
 				    </div>
 				</div>
-				<!--用户列表点击编辑-->
-				<div class="modal modal-edit" id="modal-edit" aria-hidden="true">
-				   <div class="modal-by-dialog">
-					   <a href="#" class="btnClose fa  fa-close" style="color:#333333"></a>
-					   <form role="form" class="form">
-					      <p class="formTitle">编辑信息</p>
-						  <div class="form-group">
-							<label for="username_2">地址:</label>
-							<input type="text" class="form-control form-addrss" id="address_2"  readonly>
-						  </div>
-						  <div class="form-group">
-							<label for="username_2">用户名:</label>
-							<input type="text" class="form-control form-name" placeholder="请输入用户名" id="username_2">
-						  </div>
-						  <div class="form-group">
-							<label for="username_2">所属机构:</label>
-							<select class="form-control" id="organNamez" >
-								<option value="1">测试1</option>
-								<option value="2">测试2</option>
-							 </select>
-						  </div>
-						  <div class="form-group">
-							<label for="username_2">角色权限:</label>
-							<select class="form-control" id="rolez">
-								<option value="1">管理员</option>
-								<option value="2">普通用户</option>
-							 </select>
-						  </div>
-						  <a href="#"class="btn btn-submit">更新</a>
-					  </form>
-				  </div>
-				</div>
+
 			</div>
 			</div>
 		</section>
@@ -161,57 +91,46 @@
 
         <script src="/static/js/my-page.js"></script>
 		<script type="text/javascript">
+			var pages = [[${totalPage}]];
+			var flag= [[${pageNum}]];
+			var page = Number(getQuery('page')) ? Number(getQuery('page')):1
+			var type = Number(getQuery('type'))
 			$("#weld-header").load("/web/header");
-			$(".affair_nav").click(function(){
-			  //console.log($(this).index());
-			  if($(this).index()==0){
-			    $("#tab_ptrans").css({"display":"block"})
-				$("#tab_users").css({"display":'none'})
-				$(".searchIn").css({"display":'none'})
-				
-			  }else{
-			    $("#tab_ptrans").css({"display":"none"})
-				$("#tab_users").css({"display":'block'})
-				$(".searchIn").css({"display":'block'})
-			
-				}
-			  $(this).addClass('cur')
-			  $(this).siblings().removeClass("cur")
-			})
-			
-			myPageInit({
-				pages: [[${totalPage}]],
-				currentPage: [[${pageNum}]],
-				element: '.my-page',
-				callback: function (page) {
-					console.log("当前页:", page);
-					var result = '';
-					$.ajax({
-						url: '/web/user/getList',
-						type: 'get',
-						data: {pageNum: page},
-						dataType: "json",
-						success: function (result) {
-							console.log(result);
-							var inf = "<table class ='affair'>";
-							inf += "<tr><th>地址</th><th>用户名</th><th>所属机构</th><th>角色权限</th></tr>"
-							/*<![CDATA[*/
-							for(var i = 0;i<result.data.length;i++){
-								/*]]>*/
-								var stu = result.data[i];
-								inf += "<tr><td>"+stu.address+"</td><td>"+stu.username+"</td><td>"+stu.organName+"</td><td>"+stu.role+"</td></tr>"
-							}
-							inf += "</table>";
-							$("#tab_ptrans").append = inf;
-							console.log(inf)
-						},
-						error: function (err) {
 
-						}
-					});
-					return result;
+			myPageInit({
+				pages: pages,
+				currentPage: page,
+				element: '.user1-page',
+
+				callback: function (page) {
+					let type = 1;
+					console.log(123)
+					alert("当前页:"+page);
+					location.href="[[@{/web/user/getList(page)}]]="+page+"&type="+type;
 				}
+
 			});
+
+			/*
+			myPageInit({
+				pages: 20,
+				currentPage: 1,
+				element: '.user-page',
+				callback: function (page) {
+					console.log("user-page:", page);
+
+				}
+
+			});
+            */
+			function getQuery(para){
+				var reg = new RegExp("(^|&)"+para +"=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r!=null){
+					return unescape(r[2]);
+				}
+				return null;
+			}
 
 			function auditSuccess(address) {
 				// let address=$("#address").val();

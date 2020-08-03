@@ -23,6 +23,8 @@ public interface UserService {
 
     int auditCount();
 
+    int userCount();
+
     Organ selectOrganName(String organ);
 
     boolean auditUserRegisterSuccess(String address);
@@ -30,5 +32,7 @@ public interface UserService {
     boolean auditUserRegisterFail(String address);
 
     boolean addHash(byte[] address, String hash, int status, String timestamp);
+
+    boolean updateUser(String username ,int role ,int organ ,String address);
 
 }
