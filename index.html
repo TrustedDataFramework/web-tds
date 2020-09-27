@@ -126,8 +126,16 @@
 													<div class="circle"></div>
 													<div class="circle_bottom animation"></div>
 												</div>
+												<p><span>每天出块数量</span></p>
+												<h5><%=obj.blocksCount%></h5>
+											</div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
 												<p><span>区块高度</span></p>
-												<h5><%=obj.height%></h5>
+												<h5><%=obj.lastConfirmedHeight%></h5>
 											</div>
 											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
 												<div class="roundBrew">
@@ -137,16 +145,30 @@
 												<p><span>平均出块时间</span></p>
 												<h5><%=obj.averageBlockInterval%>秒</h5>
 											</div>
-										</script>
-									</div>
-									<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6" id='block_data_test' style="background: #fff;">
-										<script type="text/json" id="tpl">
-											<div class="roundBrew">
-												<div class="circle"></div>
-												<div class="circle_bottom animation"></div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
+												<p><span>平均手续费(WDC)</span></p>
+												<h5><%=obj.averageFee/100000000%></h5>
 											</div>
-											<p><span>最新高度区块哈希</span></p>
-											<h5><%=obj.hash%></h5>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
+												<p><span>事务池大小</span></p>
+												<h5><%=obj.queuedTransactions+obj.pendingTransactions%></h5>
+											</div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
+												<p><span>当前难度</span></p>
+												<h5 style="word-wrap:break-word;line-height: 25px;padding-top: 10px;"><%=obj.target%></h5>
+											</div>
 										</script>
 									</div>
 								</div>
