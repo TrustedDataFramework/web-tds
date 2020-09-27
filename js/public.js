@@ -50,7 +50,11 @@ function soso_tag(type) {
 			alert("Please enter the search content!");
 			return;
 		}
-		location.href = "account.html?hash=" + sosoval;
+		if (sosoval.substring(0,2) == "WX") {
+			location.href = "particulars.html?coinaddress=" + sosoval;
+		} else {
+			location.href = "account.html?hash=" + sosoval;
+		}
 	}
 
 }
