@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>Wisdom Public Chain主链浏览器</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/deal.css" />
+		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" href="./css/index_vendors.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css"/>
+		<link rel="stylesheet" type="text/css" href="css/assets.css"/>
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			@media screen and (max-width: 768px){
+				.compontPagination___3HkDQ{
+					flex-direction:column;
+				}
+			}
+			.dis{
+				display: flex;
+			}
+			.ju-c{
+				justify-content: center;
+				align-items: center;
+			}
+			.page-input{
+				padding: 0 0.15rem;
+				font-size: 80%;
+				background-position: right .375rem center;
+				background-size: 7px 8px;
+				border-radius: 5px;
+				width: 50px;
+				height: 28px;
+				border: 1px solid #a8a8a8;
+			}
+			.page-button{
+				margin: 0 10px;
+				border-radius: 5px;
+				width: 50px;
+				height: 28px;
+				border: 1px solid #a8a8a8;
+				color: #428BCA;
+				outline: none;
+				cursor: pointer;
+			}
+			.ma-r-2{
+				margin-right: 40px;
+			}
+			.compontPagination___3HkDQ p{
+				margin-top: 12px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="page_header"></div>
+		
+		<script>
+		  $("#page_header").load("header.html");
+		</script>
+		 
+		
+		<section class="box" >
+			<div class="wid-1200">
+				<div class="wid-75">
+					<div class="cont">
+						<div class="ant-bread">
+							<a href="index.html">
+								<i></i>
+								<span>首页</span></a>
+							<span class="arrows">></span>
+							<span>资产</span>
+							<span class="in">
+								<input type="text"placeholder="代币名称" id="soso_coin" style="width:50%;height:26px;"/>
+								<a style="min-width: 2%;"><span onclick="soso_coin()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="blocks"style="margin-top: 2em;">
+					<div class="wrapper">
+						<h5>
+							<p>资产列表</p>
+							<p><i></i><span style="font-size: 14px;">共&nbsp;<b id="totalCount"></b>&nbsp;项代币</span></p>
+						</h5>
+
+								
+						<div class="ant-table-wrapper">
+							<div class="" style="position: relative;">
+
+								<div class="">
+									<table class="" style="width: 100%;">
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+											<col>
+											<!-- <col>
+											<col>
+											<col>
+											<col> -->
+										</colgroup>
+										<thead class="ant-table-thead">
+											<tr>
+												<th class="ant-table-fixed-columns-in-body">
+													<div>序号</div>
+												</th>
+												<th class="">
+													<div style="text-align: center;">代币</div>
+												</th>
+												<th class="">
+													<div style="text-align: center">资产图标</div>
+												</th>
+												<th class="" style="text-align: center;">
+													<div>资产事务哈希</div>
+												</th>
+												<th class="">
+													<div style="text-align: center;">资产地址</div>
+												</th>
+
+											</tr>
+										</thead>
+											<tbody class="" id="block-content">
+											
+
+										
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+						</div>
+						<div class="d-md-flex justify-content-between my-3">
+							<div class="d-flex align-items-center text-secondary mb-2 mb-md-0">
+								显示
+								<select class="custom-select custom-select-xs mx-2" id="select" onchange="changePageSize()" name="select">
+									<option selected="selected" value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+								</select>
+								记录
+							</div>
+							<div class=" compontPagination___3HkDQ dis ju-c" style="float: right;">
+								<div class="dis ju-c ma-r-2">
+									<i id="first_page"></i><i id="pre_page"></i>
+									<p><span>当前页</span><span class="pageNum___HAhvB" id="curr_page">1</span>
+										<span>总页数</span>
+										<span class="pageNum___HAhvB" id="totalPage">1</span></p>
+									<i id="next_page"></i><i id="last_page"></i>
+								</div>
+								<div id="" class="dis page-annal">
+									<div id="" class="">
+											跳转
+										<input type="" name="" id="page" value="" class="page-input"/>
+											页
+									</div>
+									<button class="page-button" onclick="jumpSize()">确定</button>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					</div>
+				</div>
+
+
+			</div>
+		</section>
+		<div class="clear">
+			<script type="text/json" id="tpl2">
+				<% for(var i = 0;i<obj.length;i++){%>
+
+				<tr class="" data-row-key="1">
+
+					 <td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
+					 
+					<td class="" style="text-align: center;">
+						<a title="<%=obj[i].code%>" href="assetsList.html?coinaddress=<%=obj[i].code%>"><%=obj[i].code%></a>
+					</td>
+					
+					<td style="text-align: center"><img src = "<%=obj[i].image_url%>" style="width: 28px;height: 28px;border-radius:50%"/></td>
+					<td class="" style="text-align: center;">
+						<%=obj[i].hash%>
+					</td>
+					<!-- <td class="" style="text-align: center;">
+						<a title="<%=obj[i].coinHash%>" href="assetsList.html?coinaddress=<%=obj[i].coinHash%>"><%=obj[i].imgUrl%></a>
+					</td> -->
+					<td class="" style="text-align: center;">
+						<a title="<%=obj[i].hash_address%>" href="assetsList.html?coinaddress=<%=obj[i].code%>"><%=obj[i].hash_address%></a>
+					</td>
+
+				</tr>
+			<%}%>
+			</script>
+			<div id="page_footer"></div>
+	
+		</div>
+	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		 <script src="js/assets.js" type="text/javascript" charset="utf-8"></script> 
+	<script>
+		$("#page_footer").load("footer.html");
+		function MyClick(flag) {
+			if (flag == 'show') {
+				document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
+			}
+			if (flag == 'hide') {
+				document.getElementById('header-mobile-menu').classList.remove('show')
+			}
+		}
+	</script>
+	
+	
+	
+	
+	</body>
+</html>

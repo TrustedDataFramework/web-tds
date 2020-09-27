@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>Wisdom Public Chain主链浏览器</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/account.css" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css"/>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
+		
+		
+	</head>
+	<body>
+
+		<div id="page_header"></div>
+		
+		<script>
+		  $("#page_header").load("header.html");
+		 </script>
+		
+		<div class="clear">
+
+		</div>
+		<div class="con-box">
+			<div class="wid-1200">
+				<div class="wid-75">
+					<div class="ant-bread">
+						<a href="index.html">
+							<i></i>
+							<span>首页</span></a>
+						<span class="arrows">></span>
+						<span>账户详情</span>
+						<!--<span class="in">
+							<input type="text"placeholder="地址/交易hash" id= "soso" style="width:50%;height:26px;"/>
+							<a style="min-width: 2%;"><span onclick="soso_tag()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
+						</span> -->
+					</div>
+				</div>
+
+				<div class="blocks"style="margin-top: 2em;">
+					<h3 class="h3"><span>交易详情</span></h3>
+
+					<div class="subtitle">
+						<span>概况</span>
+						<div class="tabs" style="display: block; transform: translate3d(0px, 0px, 0px); width: 60px;"></div>
+					</div>
+
+
+					<section class="section">
+                         <div id="content">
+									<span style="display: block;width: 100%;text-align: center;">未找到相关数据..<span>
+						</div>	
+						<ul>
+						<script type="text/json" id="tpl">
+							<li>
+								<span>交易Hash</span>
+								<span><%=obj.hash%></span>
+							</li>
+							<li>
+								<span>交易状态</span>
+								<span>成功</span>
+							</li>
+							<li>
+								<span>区块高度</span>
+								<span><%=obj.nonce%></span>
+							</li>
+						 	<li>
+								<span>金额</span>
+								<span><%=obj.amount%></span>
+							</li>
+							<li>
+								<span>手续费</span>
+								<span><%=obj.gasPrice%></objspan>
+							</li>
+							<li>
+								<span>发起账户</span>
+
+								<span>
+
+								<%=obj.from%></a>
+
+								</span>
+							</li>
+							<li>
+								<span>接收账户</span>
+								<span><%=obj.to%></a></span>
+							</li>
+
+							<li>
+								<span>nonce</span>
+								<span><%=obj.nonce%></span>
+							</li>
+							<li>
+								<span>时间戳</span>
+								<span><%=obj.createdAt%></span>
+							</li>
+							</script>
+						</ul>
+					</section>
+				</div>
+			</div>
+		</div>
+
+		<div id="page_footer"></div>
+		
+		<script>
+		  $("#page_footer").load("footer.html");
+		 </script>
+		
+	<script>
+		function MyClick(flag) {
+			if (flag == 'show') {
+				document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
+			}
+			if (flag == 'hide') {
+				document.getElementById('header-mobile-menu').classList.remove('show')
+			}
+		}
+	</script>
+	  <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/account.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,406 @@
+.ant-breadcrumb {
+	line-height: 3.125rem;
+}
+
+.blocks {
+	background: #fff;
+	margin-bottom: 20px;
+	padding: 2.25rem 2.0625rem 3.75rem;
+	overflow: hidden;
+	margin-top: 20px;
+}
+
+.blocks h3 {
+	font-size: 1.125rem;
+	font-family: PingFangSC-Regular;
+	font-weight: 400;
+	color: #2e2f47;
+	line-height: 1.5625rem;
+	margin-bottom: 1.6875rem;
+}
+
+.ant-row {
+	padding: 0 95px;
+	position: relative;
+	margin-bottom: 28px;
+
+	position: relative;
+	margin-left: 0;
+	margin-right: 0;
+	height: auto;
+	zoom: 1;
+	display: block;
+	box-sizing: border-box;
+}
+
+.detailLable {
+	font-size: 14px;
+	font-family: PingFangSC-Regular;
+	font-weight: 400;
+	color: #9c9eb9;
+	line-height: 20px;
+	display: inline-block;
+	width: 180px;
+}
+
+.detailValue {
+	font-size: 14px;
+	font-family: PingFangSC-Regular;
+	font-weight: 400;
+	color: #2e2f47;
+	line-height: 20px;
+	display: inline-block;
+	word-break: break-all;
+	vertical-align: text-top;
+
+}
+
+.con-box {
+	position: relative;
+	margin-left: 0;
+	margin-right: 0;
+	height: auto;
+	zoom: 1;
+	display: block;
+	box-sizing: border-box;
+	margin-left: 95px;
+}
+
+.con-box p {
+	display: block;
+	box-sizing: border-box;
+	width: 50%;
+	float: left;
+}
+
+.cursor {
+	/* cursor: pointer; */
+	color: #3498db;
+}
+
+
+h5 {
+
+	height: 45px;
+	line-height: 45px;
+	padding-left: 20px;
+	font-size: 14px;
+	font-family: PingFangSC-Regular;
+	font-weight: 400;
+	color: #2e2f47;
+	position: relative;
+	border-bottom: 1px solid #e8e8e8;;
+}
+
+
+
+.ant-table-scroll table {
+	width: auto;
+	min-width: 100%;
+}
+
+.recordInfo___30rX1 {
+    margin-top: 25px;
+}
+.recordInfo___30rX1 p {
+    display: inline-block;
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #2e2f47;
+    line-height: 20px;
+    margin-left: 25px;
+    margin-bottom: 0;
+}
+
+.recordInfo___30rX1 p i {
+    display: inline-block;
+    width: 12px;
+    height: 14px;
+    background: url(../img/quantity.png) no-repeat;
+    background-size: 100% 100%;
+    margin-right: 5px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+thead {
+	display: table-header-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+
+.ant-table-thead>tr>th {
+	background: #f2f9ff;
+	font-family: PingFangSC-Regular;
+	font-weight: 400 !important;
+	color: #2e2f47 !important;
+	border-bottom: 1px solid #e8e8e8;
+	text-align: left;
+	font-size: 13px;
+
+}
+
+th,
+td {
+	padding: 15px 10px !important;
+	font-size: 13px;
+
+}
+
+tr {
+
+
+	border-bottom: 1px solid #e8e8e8;
+}
+
+td p {
+	background: #aad998;
+	width: 26px !important;
+	height: 26px;
+	margin-bottom: 0;
+	border-radius: 4px;
+	font-family: PingFangSC-Medium;
+	font-size: 12px;
+	color: #fff;
+	letter-spacing: -.23px;
+	text-align: center;
+	line-height: 26px;
+}
+
+.tc {
+
+	text-align: center !important;
+}
+
+
+
+
+
+.come {
+	background: #efc2c2;
+}
+
+
+.compontPagination___3HkDQ {
+	text-align: center;
+	margin: 0 auto;
+	font-size: 14px;
+	font-family: PingFangSC-Regular;
+	font-weight: 400;
+	color: #666;
+	line-height: 20px;
+}
+
+.compontPagination___3HkDQ i {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url(../img/jiantou.png) no-repeat;
+	background-size: 60px auto;
+	vertical-align: sub;
+	cursor: pointer;
+}
+
+.compontPagination___3HkDQ i:first-child {
+	background-position: 0 2px;
+}
+
+.compontPagination___3HkDQ i:nth-child(2) {
+	background-position: -15px 2px;
+	margin-left: 32px;
+}
+
+.compontPagination___3HkDQ i:nth-child(4) {
+	background-position: -30px 2px;
+	margin-right: 32px;
+}
+
+.compontPagination___3HkDQ i:nth-child(5) {
+	background-position: -45px 2px;
+}
+
+.compontPagination___3HkDQ p {
+	display: inline-block;
+	margin-left: 47px;
+	margin-right: 37px;
+}
+
+.compontPagination___3HkDQ .pageNum___HAhvB {
+	margin: 0 10px;
+}
+
+.ant-row:after,
+.ant-row:before {
+	display: table;
+	content: "";
+}
+
+.ant-row:after {
+	clear: both;
+}
+
+
+.wdc {
+	width: 33.33%;
+	float: left;
+	text-align: center;
+	position: relative;
+}
+
+.wdc:after {
+	content: "";
+	display: block;
+	width: 1px;
+	height: 45px;
+	background: #e8e8e8;
+	position: absolute;
+	top: 25px;
+	right: -1px;
+}
+
+/*.wdc i {*/
+/*	width: 29px;*/
+/*	display: block;*/
+/*	height: 29px;*/
+/*	margin: 0 auto 5px;*/
+/*	background: url(../img/0001.png) no-repeat;*/
+/*	background-size: 100% 100%;*/
+/*}*/
+
+/*.ant-row .wdc:nth-child(2) i {*/
+/*	background: url(../img/0002.png) no-repeat;*/
+/*	background-size: 100% 100%;*/
+/*}*/
+
+/*.ant-row .wdc:nth-child(3) i {*/
+/*	background: url(../img/0003.png) no-repeat;*/
+/*	background-size: 100% 100%;*/
+/*}*/
+
+
+.wdc p {
+
+	font-size: 14px;
+	font-family: PingFangSC-Regular;
+	font-weight: 400;
+	color: #66688f;
+	line-height: 20px;
+	margin-bottom: 10px;
+
+}
+
+.wdc h4 {
+
+	font-size: 24px;
+	font-family: PingFangSC-Medium;
+	font-weight: 500;
+	color: #2e2f47;
+	line-height: 33px;
+	margin-bottom: 0;
+}
+
+.ant-row .wdc:nth-child(3):after {
+
+	display: none;
+}
+
+.line___1UQxq {
+
+	opacity: .04;
+	border: 1px solid;
+	margin: 30px auto 40px;
+	border-image: linear-gradient(90deg, #fff, #0d1c4c, #fff) 1 1;
+}
+.blocks h5 span{	
+	position: relative;
+	line-height: 45px;
+	display: inline-block;
+}
+
+.blocks h5 span:after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 2px;
+    background: #2e2f47;
+    position: absolute;
+    bottom: 0;
+    left:-13px;}
+
+
+@media screen and (max-width: 768px) {
+
+	.box {
+		margin: 1rem;
+
+	}
+
+	.ant-row {
+
+		padding: 0;
+	}
+
+	.con-box {
+
+		margin: 0;
+		padding: 0;
+	}
+
+	.detailLable {
+		width: 47%;
+		font-size: 12px;
+	}
+
+	.detailValue {
+		font-size: 12px;
+		width: 53%;
+	}
+
+	.con-box p {
+		float: none;
+		display: block;
+		width: 100%;
+	}
+
+	.wdc {
+		width: 50%;
+		height: 120px;
+	}
+	.wdc:after {
+
+		display: none;
+	}
+
+	.wdc h4 {
+		font-size: 16px;
+		line-height: 22px;
+	}
+	.line___1UQxq {
+	   
+	}
+	.blocks h5 {
+	    font-size: 16px !important;
+	    line-height: 22px;
+	    
+		padding: 0;
+		margin: 0 auto;
+	    display: block;
+	    text-align: center;
+	}
+	
+	.recordInfo___30rX1 p {
+	    display: block;
+	    font-size: 12px;
+	    line-height: 17px;
+	    margin-left: 25px;
+	    margin-bottom: 28px;
+	}
+	.recordInfo___30rX1 p i {
+	    width: 10px;
+	    height: 12px;
+	}
+}

@@ -1,0 +1,174 @@
+	<script src="js/jquery.min.js"></script>
+	<script src="js/navbber.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		.fade.in {
+			opacity: 1;
+		}	
+		.bottom>.arrow {
+			top: -14px;
+			border-top-width: 0;
+			/* border-bottom-color: rgba(0, 0, 0, .25); */
+			border-bottom-color: #DBECF9;
+		}
+		.arrow {
+			border-width: 11px;
+		}
+		.arrow,
+		.arrow:after {
+			position: absolute;
+			display: block;
+			width: 0;
+			height: 0;
+			border-color: transparent;
+			border-style: solid;
+		}
+		.popover-s{
+			margin-top: -13px;
+		}
+		.popover-title {
+			font-size: 14px;
+			background-color: #DBECF9;
+			border-bottom: 1px solid #FFFFFF;
+			border-radius: 5px 5px 0 0;
+			height: 40px;
+			line-height: 40px;
+		}
+		.popover-content {
+			background-color: #DBECF9;
+			height: 40px;
+			line-height: 40px;
+			border-radius: 0 0 5px 5px;
+			color: #1890FF;	
+		}
+		.dorp{
+			position: relative;
+			display: inline-block;
+		}
+		.wid-1202 ul li span{
+			color: #000000;
+			padding: 0 1.2rem;
+			padding-top: 0.6875rem!important;
+			display: block;
+			cursor: pointer;
+		}
+		.dorp_con{
+		  display: none;
+		  position: absolute;
+		  cursor: pointer;
+		}
+		.dorp:hover .dorp_con{display:block;}
+	</style>
+	<header class="header">
+			<div class="wid-1201">
+				<div class="fl top-logo wid-150"><span><a href="../cn/index.html"><img src="img/logo-1.png" class=""></a></span></div>
+				<div class="fr menu"><i onclick="MyClick('show')"></i></div>
+				<div class="wid-1202 nav fl hide"style="margin-left: 50.5%;position: absolute;">
+					<ul class="">
+						<li> <a href="index.html" id="home_link" >首页</a></li>
+						<li> <a href="account.html" id="deal_link">交易</a></li>
+						<li> <a href="assets.html" id="assets_link">资产</a></li>
+					</ul>
+				</div>
+				<div class="fr hide" style="margin-top: 12px;">
+					<!-- <div class="inline">
+						<span class="search">
+							<input placeholder="地址/交易Hash" id="soso" class="ant-input" type="text" value="" >
+							<span onclick="soso_tag()">
+								<i></i></span>
+						</span>
+					</div> -->
+				</div>
+			</div>
+		</header>
+		
+		<div class="root">
+			<div class="uu">
+				<div class="header-mobile-menu" id='header-mobile-menu'>
+					<div class="root-search">
+						<input type="text" placeholder="地址" class="soso" id="sosoPoolwap" />
+						<span class="ww" onclick="sosoPool_tag(2)"></span>
+					</div>
+					<div class="root-nav">
+						<ul>
+						<li> <a href="index.html" id="h_index_link">首页</a></li>
+						<li> <a href="account.html" id="h_deal_link">交易</a></li>
+						<li>
+							<div id="" style="width: 100%;">
+								<div id=""class="h-dis-f h-jus-sp h-dividing">
+									<div id="" class="h-dis-f h-ali-ce h-jus-ce">
+										<!-- <a href="assets.html"style="padding: 0 0;">资产</a> -->
+										<span id="h-assets">合约</span>
+									</div>
+									<div class="h-dis-f h-ali-ce h-jus-ce" id="h-arrow">
+										<i class="fa fa-chevron-down" id="h-arrow-down"></i>
+										<i class="fa fa-chevron-right" id="h-arrow-right" style="display: none;"></i>
+									</div>
+								</div>
+								<div class="h-mobileMenuLanguage___3lWvP" id="h-btnshow">
+									<p><a href="assets.html" id="h_assets_link">资产详情</a></p>
+									<p><a href="contract.html" id="h_contract_link">支付详情</a></p>
+								</div>
+							</div>
+						</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		<script>
+			function MyClick(flag) {
+				
+				if (flag == 'show') {
+					document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
+					// document.getElementById('component-header').setAttribute('class', 'header-mobile-menu show');
+					
+				}
+				if (flag == 'hide') {
+					document.getElementById('header-mobile-menu').classList.remove('show');
+					// document.getElementById('component-header').setAttribute('class', 'header___1E4MV');
+				}
+			}
+		</script>
+		
+		<script type="text/javascript">
+			$(function(){
+				var u=window.location.pathname;
+				if(u.indexOf('block')>-1)
+				{
+					$('#block_link').addClass("nav-text")
+				}else if(u.indexOf('nodes')>-1){
+					$('#nodes_link').addClass("nav-text")
+				}else if(u.indexOf('deal')>-1){
+					$('#deal_link').addClass("nav-text")
+				}else if(u.indexOf('rankList')>-1){
+					$('#rankList_link').addClass("nav-text")
+				}else if(u.indexOf('pool')>-1){
+					$('#pool_link').addClass("nav-text")
+				}else if(u.indexOf('assets')>-1){
+					$('#assets_link').addClass("nav-text")
+					$('#assets_link2').css('color','#03b8f7');
+				}else if(u.indexOf('prove')>-1){
+					$('#prove_link').addClass("nav-text")
+				}else if(u.indexOf('home')>-1){
+					$('#home_link').addClass("nav-text")
+				}else if(u.indexOf('pool')>-1){
+					$('#pool_link').addClass("nav-text")
+				}else if(u.indexOf('particulars')>-1){
+					$('#deal_link').addClass("nav-text")
+				}else if(u.indexOf('account')>-1){
+					$('#deal_link').addClass("nav-text")
+				}else if(u.indexOf('contract')>-1){
+					$('#assets_link').addClass("nav-text")
+					$('#contract_link2').css('color','#03b8f7');
+				}else if(u.indexOf('operate')>-1){
+					$('#assets_link').addClass("nav-text")
+					$('#contract_link2').css('color','#03b8f7');
+					// document.getElementById("login-box").style.display="none";
+				}
+			})
+			
+			
+		</script>
+		
+		
+		
+		

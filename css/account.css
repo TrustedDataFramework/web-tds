@@ -1,0 +1,98 @@
+.con-box {
+	/*background: ;*/
+}
+
+.ant-breadcrumb {
+	line-height: 3.125rem;
+}
+
+.ant-breadcrumb .arrows {
+	padding: 0 0.5rem;
+}
+
+.blocks {
+	background: #fff;
+	margin-bottom: 20px;
+	padding: 2.25rem 2.0625rem 3.75rem;
+}
+
+.blocks h3 {
+	font-size: 1.125rem;
+	font-family: PingFangSC-Regular;
+	font-weight: 400;
+	color: #2e2f47;
+	line-height: 1.5625rem;
+	margin-bottom: 1.6875rem;
+
+}
+
+.subtitle {
+	position: relative;
+	margin-bottom: 0.9375rem;
+}
+
+
+.subtitle span {
+	display: inline-block;
+	height: 100%;
+	padding: 0.75rem 1rem;
+	box-sizing: border-box;
+	position: relative;
+	transition: color .3s cubic-bezier(.645, .045, .355, 1);
+	/* cursor: pointer; */
+	text-decoration: none;
+	display: block;
+	border-bottom: 0.0625rem solid #e8e8e8;
+}
+
+
+.tabs {
+	z-index: 1;
+	position: absolute;
+	left: 0;
+	bottom: 1px;
+	box-sizing: border-box;
+	height: 2px;
+	bottom: 0;
+	background-color: #2e2f47;
+	-ms-transform-origin: 0 0;
+	transform-origin: 0 0;
+}
+
+.section li {
+
+	padding: 13px 20px;
+	background: #F5F5F5;
+	margin-bottom: 14px;
+}
+
+.section li span {
+	display: inline-block;
+	font-size: 12px;
+	font-family: PingFangSC-Regular;
+	font-weight: 400;
+	vertical-align: middle;
+}
+
+.section li span:first-child {
+	width: 45%;
+	color: #000000;
+}
+
+.section li span:nth-child(2) {
+	width: 53%;
+	color: #000000;
+	word-break: break-word;
+}
+
+.section a {
+	color: #1890ff;
+
+}
+
+
+
+
+
+
+

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>Wisdom Public Chain 区块链浏览器</title>
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" href="./css/index_vendors.css" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css"/>
+        <script src="js/jquery.min.js"></script>
+		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/* 导航栏 */
+			.fade.in {
+				opacity: 1;
+			}
+				
+			.bottom>.arrow {
+				top: -13px;
+				border-top-width: 0;
+				border-bottom-color: #DBECF9;
+				/* border-bottom-color: rgba(0, 0, 0, .25); */
+				border-bottom-color: #DBECF9;
+			}
+				
+			.arrow {
+				border-width: 11px;
+			}
+				
+			.arrow,
+			.arrow:after {
+				position: absolute;
+				display: block;
+				width: 0;
+				height: 0;
+				border-color: transparent;
+				border-style: solid;
+				margin-top: 2px;
+			}
+			.popover-title {
+				font-size: 14px;
+				background-color: #DBECF9;
+				border-bottom: 1px solid #ffffff;
+				border-radius: 5px 5px 0 0;
+				height: 40px;
+				line-height: 40px;
+				margin-left: -30px;
+			}
+			.popover-divider{
+				border: 1px solid #000000;
+			}
+			.popover-content {
+				background-color: #DBECF9;
+				height: 40px;
+				line-height: 40px;
+				border-radius: 0 0 5px 5px;
+				margin-left: -30px;
+				
+			}
+			.dorp{
+				position: relative;
+				display: inline-block;
+			}
+			.dorp_con{
+			  display: none;
+			  position: absolute;
+			  cursor: pointer;
+			}
+			.dorp:hover .dorp_con{display:block;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="root">
+			<div>
+				<div>
+					
+					
+					<div class="bannerWrapper___TiD9c">
+						
+						<div id="component-header" class="header___1E4MV">
+							<div class="wid-1201">
+								<div class="componentHeaderPC___f9g9a"><a class="logoContainer___3JZvy" href="../index.html"><i class="tds_logo"></i></a>
+									<ul class="ant-menu headerMenu___3h_eH ant-menu-light ant-menu-root ant-menu-horizontal hide" role="menu">					
+										<!-- <li class="ant-menu-item ant-menu-item-selected" role="menuitem"><a href="index.html"><span>首页</span></a></li>			 -->
+										<li class="ant-menu-item nav-index" role="menuitem"><a href="index.html"><span>首页</span></a></li>
+										<li class="ant-menu-item" role="menuitem"><a href="account.html"><span>交易</span></a></li>
+										<li class="ant-menu-item" role="menuitem"><a href="assets.html"><span>资产</span></a></li>
+									</ul>			
+								</div>
+								<div class="componentHeaderMobile___1JrnQ"><a class="logoContainer___3JZvy" href="/">
+								<i class="wdc-logo"></i></a>
+								<div class="fr menu"><i onclick="MyClick('show')"></i></div>
+								</div>
+							</div>
+						</div>
+						<div class="bannerImg___3AdM_">
+							<div class="tpsInfo___20JAn">
+								<i class="tpsIconLeft___3k0p9">TDS</i>
+								
+								<span style="display: none;">10000+</span></div>
+								
+							<div class="searchWrapper___2DxiZ">
+								<input type="text" placeholder="交易Hash" id="soso" class="bannerSearch___1uumL"><i
+								 class="searchSubmit___3bsma"  onclick="soso_tag()"></i></div>
+							<div class="bannerLine1___35AYW"></div>
+							<div class="bannerLine2___2zTk9"></div>
+							<div class="bannerLine3___2ndMb"></div>
+							<div class="bannerLine4___3Qzdv"></div>
+							<div class="bannerLine5___11XB0"></div>
+							<div class="bannerLine6___2wX9C"></div>
+						</div>
+					</div>
+					<div class="wdcIndexWrapper___1Jv9D">
+						<div class="container">
+							<div class="wdcIndexIndicators___2j14J">
+								<h3 class="wdcIndexCardTitle___3NiKJ"><span>TDS关键指标</span></h3>
+								<div class="ant-row wdcIndexRow___14GUn">
+									<div id="block_data_browser">
+										<script type="text/json" id="tpl1">
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
+												<p><span>区块高度</span></p>
+												<h5><%=obj.height%></h5>
+											</div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
+												<p><span>平均出块时间</span></p>
+												<h5><%=obj.averageBlockInterval%>秒</h5>
+											</div>
+										</script>
+									</div>
+									<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6" id='block_data_test' style="background: #fff;">
+										<script type="text/json" id="tpl">
+											<div class="roundBrew">
+												<div class="circle"></div>
+												<div class="circle_bottom animation"></div>
+											</div>
+											<p><span>最新高度区块哈希</span></p>
+											<h5><%=obj.hash%></h5>
+										</script>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				
+				
+				
+				
+				
+				
+					<div class="wdcIndexExchange___z8C_Q" style="display: none;">
+						<div class="wdcIndexExchangeimg___FDKrI">
+							<div class="container">
+								<h3 class="wdcIndexCardTitle___3NiKJ HPBexTitle___MAOz6" style="color:#eef0f3;"><span>WDC支持交易所</span></h3>
+								<div class="ant-row hpbexRow___1eCVu">
+									<div class="exItem___2OWRZ ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6">
+										<a href="https://www.bitz.com/"
+										 target="_blank" >
+										 <img src="img/bit-z.png" style="width: 67%;" />
+										 </a>
+										 </div>
+									<div class="exItem___2OWRZ ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6">
+										<a href="https://ceohk.bi/"
+										 target="_blank"
+										 >
+										 <img src="img/ceo-logo.png" style="width: 95%;"/>
+										 </a></div>
+								<div class="exItem___2OWRZ ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6">
+									<a href="https://www.bizu.one/"
+									 target="_blank"
+									 >
+									 <img src="img/bizu-logo.png" style="width: 100%;" />
+									 </a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="root">
+			<div class="uu">
+				<div class="header-mobile-menu" id='header-mobile-menu'>
+					<div class="root-search">
+						<input type="text" placeholder="地址/交易Hash" class="soso" id="sosowap" />
+						<span class="ww" onclick="soso_tag(2)"></span>
+					</div>
+					<div class="root-nav">
+						<ul>
+						<li> <a href="index.html" class="h_ff">首页</a></li>
+						<li> <a href="block.html">区块</a></li>
+						<li> <a href="nodes.html">节点</a></li>
+						<li> <a href="deal.html">交易</a></li>
+						<li> <a href="rankList.html">账户</a></li>
+						<li> <a href="prove.html">存证</a></li>
+						<!-- <li> <a href="assets.html">资产</a></li> -->
+						<li>
+							<div id="" style="width: 100%;">
+								<div id=""class="h-dis-f h-jus-sp h-dividing">
+									<div id="" class="h-dis-f h-ali-ce h-jus-ce">
+										<!-- <a href="assets.html"style="padding: 0 0;">资产</a> -->
+										<span id="h-assets">合约</span>
+									</div>
+									<div class="h-dis-f h-ali-ce h-jus-ce" id="h-arrow">
+										<i class="fa fa-chevron-down" id="h-arrow-down"></i>
+										<i class="fa fa-chevron-right" id="h-arrow-right" style="display: none;"></i>
+									</div>
+								</div>
+								<div class="h-mobileMenuLanguage___3lWvP" id="h-btnshow">
+									<p><a href="assets.html">资产详情</a></p>
+									<p><a href="contract.html">支付详情</a></p>
+								</div>
+							</div>
+						</li>
+						<li> <a href="pool.html" class="arr">事务池</a></li>
+						<li class="root-language"><a href="/index.html">English</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		<script>
+			function MyClick(flag) {
+				
+				if (flag == 'show') {
+					document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
+					document.getElementById('component-header').setAttribute('class', 'header-mobile-menu show');
+					
+				}
+				if (flag == 'hide') {
+					document.getElementById('header-mobile-menu').classList.remove('show');
+					document.getElementById('component-header').setAttribute('class', 'header___1E4MV');
+				}
+			}
+			
+			
+		</script>
+		<script src="js/navbber.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
