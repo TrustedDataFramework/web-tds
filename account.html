@@ -19,7 +19,7 @@
 		
 		<script>
 		  $("#page_header").load("header.html");
-		 </script>
+</script>
 		
 		<div class="clear">
 
@@ -31,6 +31,8 @@
 						<a href="index.html">
 							<i></i>
 							<span>首页</span></a>
+						<span class="arrows">></span>
+						<a href="deal.html"><span>交易</span></a>
 						<span class="arrows">></span>
 						<span>账户详情</span>
 						<!--<span class="in">
@@ -52,7 +54,7 @@
 					<section class="section">
                          <div id="content">
 									<span style="display: block;width: 100%;text-align: center;">未找到相关数据..<span>
-						</div>	
+						</div>
 						<ul>
 						<script type="text/json" id="tpl">
 							<li>
@@ -65,28 +67,36 @@
 							</li>
 							<li>
 								<span>区块高度</span>
-								<span><%=obj.nonce%></span>
+								<span><%=obj.height%></span>
 							</li>
 						 	<li>
 								<span>金额</span>
 								<span><%=obj.amount%></span>
 							</li>
+						<!--	<li>
+								<span>Gas 上限</span>
+								<span>100,000,000</span>
+							</li> -->
+						<!-- 	<li>
+								<span>Gas 价格</span>
+								<span>0.002 WDC (100 Gwei)</span>
+							</li> -->
 							<li>
 								<span>手续费</span>
-								<span><%=obj.gasPrice%></objspan>
+								<span><%=obj.fee%></objspan>
 							</li>
 							<li>
 								<span>发起账户</span>
 
-								<span>
+								<span><a href="particulars.html?coinaddress=<%=obj.from_address%>">
 
-								<%=obj.from%></a>
+								<%=obj.from_address%></a>
 
 								</span>
 							</li>
 							<li>
 								<span>接收账户</span>
-								<span><%=obj.to%></a></span>
+								<span><a href="particulars.html?coinaddress=<%=obj.to_address%>"><%=obj.to_address%></a></span>
 							</li>
 
 							<li>
@@ -95,8 +105,16 @@
 							</li>
 							<li>
 								<span>时间戳</span>
-								<span><%=obj.createdAt%></span>
+								<span><%=obj.created_at%></span>
 							</li>
+							<!-- <li>
+								<span>操作类型</span>
+								<span><%if(obj.type==1){%>
+															<%="进"%>
+															<%}else{%>
+															<%="出"%>
+										<%}%></span>
+							</li> -->
 							</script>
 						</ul>
 					</section>
@@ -106,20 +124,16 @@
 
 		<div id="page_footer"></div>
 		
-		<script>
-		  $("#page_footer").load("footer.html");
-		 </script>
-		
 	<script>
 		function MyClick(flag) {
-			if (flag == 'show') {
-				document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
-			}
-			if (flag == 'hide') {
-				document.getElementById('header-mobile-menu').classList.remove('show')
-			}
-		}
-	</script>
+	if (flag == 'show') {
+		document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
+	}
+	if (flag == 'hide') {
+		document.getElementById('header-mobile-menu').classList.remove('show')
+	}
+}
+</script>
 	  <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/account.js" type="text/javascript" charset="utf-8"></script>
 	</body>
