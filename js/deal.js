@@ -10,8 +10,8 @@ function getTransferLogList(pageSize, pageIndex) {
 	}
 		//数据请求部分
 		$.get("/v2-web/get_all_transfer_list_no_page", {
-				start: pageIndex*pageSize+1,
-				end: pageSize * (1+pageIndex)
+				start: pageIndex*pageSize,
+				end: pageSize * (1+pageIndex)-1
 			},
 			function(result) {
 				if (result.code == "2000") {
